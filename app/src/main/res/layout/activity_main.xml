@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:keepScreenOn="true">
+
+    <android.opengl.GLSurfaceView
+        android:id="@+id/glView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.nzeus.nvg.hud.HudOverlay
+        android:id="@+id/hud"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Bottom panel (collapsible) -->
+    <LinearLayout
+        android:id="@+id/panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#CC000000"
+        android:padding="14dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/controls">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button android:id="@+id/btnNvg" style="@style/NzeusButton" android:layout_weight="1"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:text="NVG"/>
+            <Button android:id="@+id/btnThermal" style="@style/NzeusButton" android:layout_weight="1"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:text="THRM"/>
+            <Button android:id="@+id/btnClahe" style="@style/NzeusButton" android:layout_weight="1"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:text="CLR"/>
+            <Button android:id="@+id/btnRaw" style="@style/NzeusButton" android:layout_weight="1"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:text="RAW"/>
+        </LinearLayout>
+
+        <TextView android:id="@+id/tvGamma" style="@style/NzeusLabel"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="GAMMA 1.60" android:layout_marginTop="10dp"/>
+        <SeekBar android:id="@+id/seekGamma" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:max="100" android:progress="44"/>
+
+        <TextView android:id="@+id/tvGain" style="@style/NzeusLabel"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="GAIN 1.00"/>
+        <SeekBar android:id="@+id/seekGain" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:max="100" android:progress="20"/>
+
+        <TextView android:id="@+id/tvEdge" style="@style/NzeusLabel"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="EDGE 0.30"/>
+        <SeekBar android:id="@+id/seekEdge" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:max="100" android:progress="20"/>
+
+        <TextView android:id="@+id/tvPhos" style="@style/NzeusLabel"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="PHOSPHOR 0.85"/>
+        <SeekBar android:id="@+id/seekPhos" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:max="100" android:progress="85"/>
+
+        <TextView android:id="@+id/tvIsoVal" style="@style/NzeusLabel"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="ISO AUTO" android:layout_marginTop="6dp"/>
+        <SeekBar android:id="@+id/seekIso" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:max="6000" android:progress="0"/>
+
+        <TextView android:id="@+id/tvExpVal" style="@style/NzeusLabel"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="EXP AUTO"/>
+        <SeekBar android:id="@+id/seekExp" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:max="200" android:progress="0"/>
+    </LinearLayout>
+
+    <!-- Bottom control bar -->
+    <LinearLayout
+        android:id="@+id/controls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:background="#99000000"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button android:id="@+id/btnSnap" style="@style/NzeusButton"
+            android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content" android:text="SNAP"/>
+        <Button android:id="@+id/btnRec" style="@style/NzeusButton"
+            android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content" android:text="REC"/>
+        <Button android:id="@+id/btnCfg" style="@style/NzeusButton"
+            android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content" android:text="CFG"/>
+        <Button android:id="@+id/btnGridTgl" style="@style/NzeusButton"
+            android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content" android:text="GRID"/>
+        <Button android:id="@+id/btnRtcl" style="@style/NzeusButton"
+            android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content" android:text="RTCL"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
